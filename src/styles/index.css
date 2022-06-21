@@ -1,12 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Inconsolata&family=Nunito:wght@400&family=VT323&display=swap');
 
-/* 
+body {
 
-    You can write your own styles here...
+    background-image: url("https://cdna.artstation.com/p/assets/images/images/036/822/576/original/karina-formanova-cover-final.gif?1618727960");
+    color: aliceblue;
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100vh;
     
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+}
 
-*/
+.container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}    
+
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    font-family: 'Inconsolata', monospace;
+}
+
+label {
+    font-family: 'VT323', monospace;
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+#newTodo {
+    height: 40px;
+    width: 400px;
+    margin-right: 9px;
+}
+
+
+#button1 {
+    background-color:gold;
+    font-family: 'Inconsolata', monospace;
+}
+
+#button2 {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: gold;
+    margin-left: 10px;
+}
+
+ul {
+    font-size: 2em;
+    font-family: 'Caveat Brush', cursive;
+
+}
+
+
