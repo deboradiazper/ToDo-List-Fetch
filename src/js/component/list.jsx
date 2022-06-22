@@ -1,8 +1,11 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 
 const List = () => {
 
+    //lo q introduce el usuario
     const [newTodo, setnewTodo] = useState ('');
+
+    //todos we have
     const [todos, setTodos] = useState([]);
     
 
@@ -14,19 +17,26 @@ const List = () => {
     //submit
     const formSubmitted =useCallback ((event) => {
         event.preventDefault();
-        if (!newTodo.trim()) return;
+        if(!newTodo.trim()) return;
         setTodos([
             ...todos,
             {
+                //value q ponemos en el array nuevo //caract. objeto
                 id: todos.length + 1,
                 content: newTodo,
                 done: false,
             }
         ]);
+        //vaciamos input una vez se introduce el nuevo value
         setnewTodo('');
     }, [newTodo, todos]);
     
-    
+
+//preventing q aparezca el logueo todo el rato
+    useEffect (()=>{
+console.log('todos', todos)
+    }, [todos])
+
     //button remove
     const removeTodo = useCallback((todo) => (event) => {
         setTodos(todos.filter(otherTodo => otherTodo!= todo));
@@ -54,15 +64,13 @@ const List = () => {
                 <div className="row">
                     <div className="col-12 mb-3 mt-3 text-center">
                         <ul>
-                            {todos.map((todo, index)=>(
+                            {todos.map((todo)=>(
                                 <p key={todo.id}>
-                                        <span className={todo.done ? 'done' : ''}>
+                                        <span className={todo}>
                                             {todo.content}</span>
                                     <button id="button2" onClick={removeTodo(todo)}>X</button>
                                     </p>
                             ))}
-                            
-                            
                         </ul>
                     </div>
                 </div>
@@ -73,6 +81,3 @@ const List = () => {
 
 export default List;
 
-   // useEffect(() => {
-    //   console.log('todos', todos);
-    //}, [todos]);
