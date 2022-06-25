@@ -69,9 +69,14 @@ console.log('todos', todos)
                                         <span className={todo}>
                                             {todo.content}</span>
                                     <button id="button2" onClick={removeTodo(todo)}>X</button>
-                                    </p>
+                                </p>
                             ))}
                         </ul>
+                    </div>
+                </div>
+                    <div className="row">
+                        <div className="position-absolute bottom-0 end-0">
+                            <p id="length"><strong>{todos.length}</strong> ToDo's left</p>
                     </div>
                 </div>
             </div>
